@@ -1,0 +1,776 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro:400,900&display=swap');
+
+/*Global styles*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none
+}
+
+ul {
+    list-style: none
+}
+
+:root {
+
+    --main-font: 'Source Sans Pro', sans-serif;
+    --secondary-font: 'Herr Von Muellerhoff', cursive;
+    --body-font: 'Cabin', sans-serif;
+    --main-font-color-dark: #252525;
+    --secondary-font-color: #c59d5f;
+    --body-font-color: #515151;
+    --color: white;
+    --footer-color-1: #111626;
+    --footer-color-2: #212b49;
+    --time: 0.5s;
+    --opacity: rgb(0 0 0 / 70%);
+    --padding: 80px;
+    font-size: 10px;
+}
+
+body {
+    font-family: var(--body-font);
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--padding) 0px;
+}
+
+@media (max-width : 767px) {
+    .container {
+        width: 100%;
+        padding: var(--padding) 15px;
+    }
+}
+
+/* small */
+@media (min-width : 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* medium */
+@media (min-width : 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* large */
+@media (min-width : 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* componets */
+.special-title {
+    text-align: center
+}
+
+.special-title h2 {
+    color: var(--secondary-font-color);
+    font-family: var(--secondary-font);
+    font-size: 12rem;
+    font-weight: 400;
+}
+
+.special-title p {
+    color: var(--color);
+    font-size: 4rem;
+    font-family: var(--main-font);
+    font-weight: 600;
+    margin-top: -50px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.special-title div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 10px auto;
+    width: 90%
+}
+
+.special-title hr {
+    width: 100px;
+    height: 2px;
+    background: var(--color);
+}
+
+.special-title hr::after {
+    content: "";
+    position: absolute;
+    border: 6px solid;
+    top: 2px;
+
+}
+
+.special-title hr.left::after {
+    left: 0px;
+    border-color: transparent transparent transparent var(--color);
+}
+
+.special-title hr.right::after {
+    right: 0px;
+    border-color: transparent var(--color) transparent transparent;
+}
+
+.special-title i {
+    font-size: 1.5rem;
+    color: var(--secondary-font-color);
+}
+
+
+
+@media (max-width:768px) {
+    .special-title h2 {
+        font-size: 10rem
+    }
+
+    .special-title p {
+        font-size: 3rem
+    }
+}
+
+
+
+.special-link {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 5px 0px;
+    position: relative;
+    color: var(--secondary-font-color);
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+
+.special-link::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--secondary-font-color);
+    top: 100%;
+    right: 0px;
+    transition: var(--time)
+}
+
+
+.special-link:hover::after {
+    width: 0%;
+
+}
+
+
+.special-link::before {
+    content: "\f178";
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(0%, -50%);
+    transition: var(--time) var(--time);
+    opacity: 0;
+}
+
+.special-link:hover::before {
+    animation: story-link var(--time) linear var(--time) 1 forwards;
+}
+
+@keyframes story-link {
+    to {
+        transform: translate(100%, -50%);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+/* start project */
+
+nav {
+    background: rgb(0 0 0 / 70%);
+    color: var(--color);
+    font-size: 2rem;
+    position: absolute;
+    width: 100%;
+}
+
+nav .container {
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    position: relative;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    padding: 10px 15px;
+    display: block;
+    text-transform: capitalize;
+    color: var(--color);
+    transition: color var(--time);
+    position: relative;
+    height: 50px;
+}
+
+nav ul a:hover {
+    color: var(--secondary-font-color);
+}
+
+nav ul a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: calc(100% - 5px);
+    width: 00%;
+    height: 5px;
+    background: var(--color);
+    transition: var(--time);
+}
+
+nav ul a:hover::after {
+    width: 100%;
+}
+
+
+
+
+
+nav .bar {
+    display: none;
+}
+
+nav .bar:hover~ul {
+    display: block;
+    position: absolute;
+}
+
+nav .bar:hover~ul.main-links {
+    left: 0px;
+    top: 50px;
+    background: var(--opacity);
+    width: 100%;
+}
+
+nav .bar:hover~ul.sub-links {
+    left: 0px;
+    top: 250px;
+    background: var(--opacity);
+    width: 100%;
+}
+
+
+
+@media(max-width:991px) and (min-width:768px) {
+    nav {
+        font-size: 1.5rem
+    }
+}
+
+@media (max-width : 768px) {
+    nav .container {
+        padding: 0px 15px
+    }
+
+    nav ul {
+        display: none
+    }
+
+    nav .bar {
+        display: block;
+    }
+
+}
+
+
+/* start header */
+.landing {
+    background-image: url(../images/hero.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.landing .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.landing .container .content p {
+    color: var(--color);
+    font-size: 1.5rem;
+    margin: 10px 0px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.landing .container .content a {
+    display: block;
+    margin: 20px auto;
+    width: fit-content;
+    background: var(--color);
+    padding: 12px 35px;
+    font-size: 1.5rem;
+    color: var(--body-font-color);
+    border-radius: 8px;
+    transition: var(--time)
+}
+
+.landing .container .content a:hover {
+    color: var(--color);
+    background: var(--secondary-font-color)
+}
+
+
+
+
+@media (max-width:768px) {
+    .landing {
+        background-position: bottom;
+    }
+}
+
+
+
+
+
+
+.story .container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story .special-title {
+
+    margin-bottom: 61px;
+
+}
+
+.story .content {
+    width: 60%;
+    margin-right: 60px;
+}
+
+.story .special-title p {
+    color: var(--main-font-color-dark)
+}
+
+.story .text {
+    color: var(--body-font-color);
+    font-size: 1.7rem;
+    text-align: center;
+    line-height: 1.7;
+}
+
+
+
+.story img {
+    width: 50%
+}
+
+
+@media (max-width:992px) {
+    .story .container {
+        flex-direction: column;
+    }
+
+    .story .content {
+        width: 100%;
+        margin-right: 0px
+    }
+
+    .story img {
+        width: 100%
+    }
+}
+
+
+.recipes {
+    background-image: url(../images/tasteful-recipes.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.recipes .special-title {
+    padding: 20px
+}
+
+
+@media (max-width: 768px) {
+    .recipes .container {
+        flex-direction: column-reverse;
+    }
+
+}
+
+
+
+
+.menu .container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.menu .content {
+
+    flex-basis: 50%;
+}
+
+.menu .content .special-title p {
+    color: var(--main-font-color-dark)
+}
+
+.menu .content .text {
+    color: var(--body-font-color);
+    font-size: 1.7rem;
+    text-align: center;
+    line-height: 1.7;
+    padding: 30px 30px 0px;
+}
+
+.menu .images {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 10px;
+    flex-basis: 50%;
+
+    margin-right: 20px;
+}
+
+
+.menu .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+    .menu .container {
+        flex-direction: column-reverse;
+    }
+
+    .menu .images {
+        width: 90%;
+        margin: 0px auto;
+    }
+}
+
+
+.blend {
+    background-image: url(../images/perfect-blend.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+
+.blend .special-title h2 {
+    padding: 20px;
+}
+
+@media (max-width:768px) {
+    .blend {
+        background-position: 30%;
+    }
+
+    .blend .special-title h2 {
+        font-size: 8rem;
+    }
+}
+
+
+.delight .container {
+    display: flex;
+}
+
+.delight .container .content {
+    flex-basis: 48%;
+}
+
+.delight .container .content .special-title p {
+    color: var(--main-font-color-dark)
+}
+
+.delight .container .content .text {
+    color: var(--body-font-color);
+    font-size: 1.7rem;
+    text-align: center;
+    line-height: 1.7;
+    padding: 30px 30px 0px;
+}
+
+.delight .images {
+    flex-basis: 50%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 10px
+}
+
+
+.delight .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+
+@media (max-width: 768px) {
+
+    .delight .container {
+        flex-direction: column-reverse;
+    }
+
+    .delight .images {
+        width: 90%;
+        margin: 0px auto;
+    }
+}
+
+
+
+footer {
+    color: var(--color)
+}
+
+footer .info {
+    background: var(--footer-color-2);
+}
+
+footer .copy {
+    background: var(--footer-color-1);
+}
+
+footer .container {
+    font-size: 2.5rem;
+    padding: calc(var(--padding) / 4);
+}
+
+
+footer a {
+    color: var(--color);
+    text-decoration: underline;
+    transition: var(--time)
+}
+
+footer a:hover {
+    color: var(--secondary-font-color);
+}
+
+footer .info .contact {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+footer .info .contact * {
+    margin: 10px;
+}
+
+footer .old h2 {
+    font-size: 8rem;
+    font-weight: 400;
+    margin: 40px 0px -20px 0px;
+}
+
+footer .images {
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    perspective: 1200px;
+
+}
+
+footer .image {
+    border: 5px solid var(--secondary-font-color);
+    background: white;
+
+    height: 250px;
+    width: 200px;
+    margin: 20px;
+    flex-grow: 1;
+
+    position: relative;
+    transform-style: preserve-3d;
+    transition: var(--time)
+}
+
+footer .image:hover {
+    transform: rotatex(-180deg);
+
+}
+
+
+footer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    backface-visibility: hidden;
+}
+
+footer .image a {
+    display: block;
+    position: absolute;
+
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--color);
+    color: var(--secondary-font-color);
+    text-decoration: none;
+    font-family: var(--secondary-font);
+    font-size: 5rem;
+
+    backface-visibility: hidden;
+    transform: rotatex(180deg);
+}
+
+
+footer .follow {
+    text-align: center;
+    margin: 30px 0px;
+}
+
+
+footer .follow a {
+    font-size: 10rem;
+    position: relative
+}
+
+footer .follow p {
+    color: var(--secondary-font-color);
+    font-family: var(--secondary-font);
+    font-size: 6rem;
+    font-weight: 400;
+}
+
+footer .follow span {
+    display: block;
+    width: 80px;
+    height: 120px;
+    position: relative;
+    background: var(--color);
+    margin: 0px auto;
+    border-radius: 50px 50px 0px 0px;
+    transform: translateX(-10px) rotate(-45deg) scale(0.5);
+    animation-name: heart;
+    animation-duration: var(--time);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    --animation-color: red;
+}
+
+footer .follow span:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background: inherit;
+    border-radius: 50px 50px 0px 0px;
+    top: 0px;
+    left: 0px;
+    transform: rotate(90deg) translate(60px, -59px);
+}
+
+@keyframes heart {
+    to {
+        transform: translateX(-10px) rotate(-45deg) scale(0.7);
+        background: var(--animation-color)
+    }
+}
+
+
+footer .follow span:hover {
+    --animation-color: var(--secondary-font-color);
+    cursor: pointer;
+}
+
+footer .copy {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+footer .copy .container {
+    display: flex;
+    justify-content: center;
+}
+
+footer .copy a {
+    margin-left: 10px;
+}
+
+
+@media (min-width:992px) and (max-width:1200px) {
+
+
+    footer .kasper img {
+        object-position: 0px -60px;
+    }
+
+}
+
+
+@media (max-width:767px) {
+    footer .info .contact * {
+        margin: 10px;
+        font-size: 1.7rem
+    }
+
+    footer .copy .container {
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.7rem
+    }
+
+    footer .copy a {
+        margin: 10px 0px;
+    }
+}
